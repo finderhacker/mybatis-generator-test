@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry
+            location="C:/Users/ITSupport/.m2/repository/mysql/mysql-connector-java/5.1.38/mysql-connector-java-5.1.38.jar"/>
+    <context id="my" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressDate" value="false"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.0.81:3306/s62" userId="dev"
+                        password="dev123"/>
+
+        <javaModelGenerator targetPackage="com.yhqz.scheduler.model"
+                            targetProject="E:/workspace/eclipse/UTF-8/mybatis-generator-test/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="com.yhqz.scheduler.mapper"
+                         targetProject="E:/workspace/eclipse/UTF-8/mybatis-generator-test/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator targetPackage="com.yhqz.scheduler.dao"
+                             targetProject="E:/workspace/eclipse/UTF-8/mybatis-generator-test/src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!--<table tableName="T_FEE_AGTBILL" domainObjectName="FeeAgentBill"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"/>-->
+
+<!--         <table tableName="transfer_apply" domainObjectName="TransferApply"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <columnRenamingRule searchString="^D_"
+                                replaceString=""/>
+        </table>
+        
+        <table tableName="transfer_record" domainObjectName="TransferRecord"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <columnRenamingRule searchString="^D_"
+                                replaceString=""/>
+        </table>
+        <table tableName="t6252" domainObjectName="BidRepayRecord"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+             <columnRenamingRule searchString="^D_"
+                                replaceString=""/> 
+        </table> -->
+        
+        <table tableName="t6251" domainObjectName="BidCreditRecord"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+<!--             <columnRenamingRule searchString="^D_"
+                                replaceString=""/> -->
+        </table>
+        
+        
+
+    </context>
+</generatorConfiguration>

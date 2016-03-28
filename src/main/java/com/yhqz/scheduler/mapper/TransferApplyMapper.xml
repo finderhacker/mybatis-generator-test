@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yhqz.scheduler.dao.TransferApplyMapper" >
+  <resultMap id="BaseResultMap" type="com.yhqz.scheduler.model.TransferApply" >
+    <id column="ROW_ID" property="rowId" jdbcType="INTEGER" />
+    <result column="TRANSFER_TITLE" property="transferTitle" jdbcType="VARCHAR" />
+    <result column="PROFIT_AMOUNT" property="profitAmount" jdbcType="DECIMAL" />
+    <result column="TRANSFER_AMOUNT" property="transferAmount" jdbcType="DECIMAL" />
+    <result column="CREDIT_AMOUNT" property="creditAmount" jdbcType="DECIMAL" />
+    <result column="REMAIN_AMOUNT" property="remainAmount" jdbcType="DECIMAL" />
+    <result column="TRANSFER_DESC" property="transferDesc" jdbcType="VARCHAR" />
+    <result column="TRANSFEROR_ID" property="transferorId" jdbcType="INTEGER" />
+    <result column="RECORD_ID" property="recordId" jdbcType="INTEGER" />
+    <result column="LOAN_ID" property="loanId" jdbcType="INTEGER" />
+    <result column="LOAN_RATE" property="loanRate" jdbcType="DECIMAL" />
+    <result column="CREDIT_TERM" property="creditTerm" jdbcType="INTEGER" />
+    <result column="TRANSFER_STATUS" property="transferStatus" jdbcType="VARCHAR" />
+    <result column="TRANSFER_REASON" property="transferReason" jdbcType="VARCHAR" />
+    <result column="APPLY_DATE" property="applyDate" jdbcType="TIMESTAMP" />
+    <result column="AUDIT_DATE" property="auditDate" jdbcType="TIMESTAMP" />
+    <result column="RAISEEND_DATE" property="raiseendDate" jdbcType="TIMESTAMP" />
+    <result column="TRANSFEREND_DATE" property="transferendDate" jdbcType="TIMESTAMP" />
+    <result column="CREATED_ID" property="createdId" jdbcType="INTEGER" />
+    <result column="CREATED_TIME" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_ID" property="updateId" jdbcType="INTEGER" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ROW_ID, TRANSFER_TITLE, PROFIT_AMOUNT, TRANSFER_AMOUNT, CREDIT_AMOUNT, REMAIN_AMOUNT, 
+    TRANSFER_DESC, TRANSFEROR_ID, RECORD_ID, LOAN_ID, LOAN_RATE, CREDIT_TERM, TRANSFER_STATUS, 
+    TRANSFER_REASON, APPLY_DATE, AUDIT_DATE, RAISEEND_DATE, TRANSFEREND_DATE, CREATED_ID, 
+    CREATED_TIME, UPDATE_ID, UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from transfer_apply
+    where ROW_ID = #{rowId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from transfer_apply
+    where ROW_ID = #{rowId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhqz.scheduler.model.TransferApply" >
+    insert into transfer_apply (ROW_ID, TRANSFER_TITLE, PROFIT_AMOUNT, 
+      TRANSFER_AMOUNT, CREDIT_AMOUNT, REMAIN_AMOUNT, 
+      TRANSFER_DESC, TRANSFEROR_ID, RECORD_ID, 
+      LOAN_ID, LOAN_RATE, CREDIT_TERM, 
+      TRANSFER_STATUS, TRANSFER_REASON, APPLY_DATE, 
+      AUDIT_DATE, RAISEEND_DATE, TRANSFEREND_DATE, 
+      CREATED_ID, CREATED_TIME, UPDATE_ID, 
+      UPDATE_TIME)
+    values (#{rowId,jdbcType=INTEGER}, #{transferTitle,jdbcType=VARCHAR}, #{profitAmount,jdbcType=DECIMAL}, 
+      #{transferAmount,jdbcType=DECIMAL}, #{creditAmount,jdbcType=DECIMAL}, #{remainAmount,jdbcType=DECIMAL}, 
+      #{transferDesc,jdbcType=VARCHAR}, #{transferorId,jdbcType=INTEGER}, #{recordId,jdbcType=INTEGER}, 
+      #{loanId,jdbcType=INTEGER}, #{loanRate,jdbcType=DECIMAL}, #{creditTerm,jdbcType=INTEGER}, 
+      #{transferStatus,jdbcType=VARCHAR}, #{transferReason,jdbcType=VARCHAR}, #{applyDate,jdbcType=TIMESTAMP}, 
+      #{auditDate,jdbcType=TIMESTAMP}, #{raiseendDate,jdbcType=TIMESTAMP}, #{transferendDate,jdbcType=TIMESTAMP}, 
+      #{createdId,jdbcType=INTEGER}, #{createdTime,jdbcType=TIMESTAMP}, #{updateId,jdbcType=INTEGER}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhqz.scheduler.model.TransferApply" >
+    insert into transfer_apply
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="rowId != null" >
+        ROW_ID,
+      </if>
+      <if test="transferTitle != null" >
+        TRANSFER_TITLE,
+      </if>
+      <if test="profitAmount != null" >
+        PROFIT_AMOUNT,
+      </if>
+      <if test="transferAmount != null" >
+        TRANSFER_AMOUNT,
+      </if>
+      <if test="creditAmount != null" >
+        CREDIT_AMOUNT,
+      </if>
+      <if test="remainAmount != null" >
+        REMAIN_AMOUNT,
+      </if>
+      <if test="transferDesc != null" >
+        TRANSFER_DESC,
+      </if>
+      <if test="transferorId != null" >
+        TRANSFEROR_ID,
+      </if>
+      <if test="recordId != null" >
+        RECORD_ID,
+      </if>
+      <if test="loanId != null" >
+        LOAN_ID,
+      </if>
+      <if test="loanRate != null" >
+        LOAN_RATE,
+      </if>
+      <if test="creditTerm != null" >
+        CREDIT_TERM,
+      </if>
+      <if test="transferStatus != null" >
+        TRANSFER_STATUS,
+      </if>
+      <if test="transferReason != null" >
+        TRANSFER_REASON,
+      </if>
+      <if test="applyDate != null" >
+        APPLY_DATE,
+      </if>
+      <if test="auditDate != null" >
+        AUDIT_DATE,
+      </if>
+      <if test="raiseendDate != null" >
+        RAISEEND_DATE,
+      </if>
+      <if test="transferendDate != null" >
+        TRANSFEREND_DATE,
+      </if>
+      <if test="createdId != null" >
+        CREATED_ID,
+      </if>
+      <if test="createdTime != null" >
+        CREATED_TIME,
+      </if>
+      <if test="updateId != null" >
+        UPDATE_ID,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="rowId != null" >
+        #{rowId,jdbcType=INTEGER},
+      </if>
+      <if test="transferTitle != null" >
+        #{transferTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="profitAmount != null" >
+        #{profitAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="transferAmount != null" >
+        #{transferAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="creditAmount != null" >
+        #{creditAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="remainAmount != null" >
+        #{remainAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="transferDesc != null" >
+        #{transferDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="transferorId != null" >
+        #{transferorId,jdbcType=INTEGER},
+      </if>
+      <if test="recordId != null" >
+        #{recordId,jdbcType=INTEGER},
+      </if>
+      <if test="loanId != null" >
+        #{loanId,jdbcType=INTEGER},
+      </if>
+      <if test="loanRate != null" >
+        #{loanRate,jdbcType=DECIMAL},
+      </if>
+      <if test="creditTerm != null" >
+        #{creditTerm,jdbcType=INTEGER},
+      </if>
+      <if test="transferStatus != null" >
+        #{transferStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="transferReason != null" >
+        #{transferReason,jdbcType=VARCHAR},
+      </if>
+      <if test="applyDate != null" >
+        #{applyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditDate != null" >
+        #{auditDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="raiseendDate != null" >
+        #{raiseendDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transferendDate != null" >
+        #{transferendDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdId != null" >
+        #{createdId,jdbcType=INTEGER},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateId != null" >
+        #{updateId,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhqz.scheduler.model.TransferApply" >
+    update transfer_apply
+    <set >
+      <if test="transferTitle != null" >
+        TRANSFER_TITLE = #{transferTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="profitAmount != null" >
+        PROFIT_AMOUNT = #{profitAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="transferAmount != null" >
+        TRANSFER_AMOUNT = #{transferAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="creditAmount != null" >
+        CREDIT_AMOUNT = #{creditAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="remainAmount != null" >
+        REMAIN_AMOUNT = #{remainAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="transferDesc != null" >
+        TRANSFER_DESC = #{transferDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="transferorId != null" >
+        TRANSFEROR_ID = #{transferorId,jdbcType=INTEGER},
+      </if>
+      <if test="recordId != null" >
+        RECORD_ID = #{recordId,jdbcType=INTEGER},
+      </if>
+      <if test="loanId != null" >
+        LOAN_ID = #{loanId,jdbcType=INTEGER},
+      </if>
+      <if test="loanRate != null" >
+        LOAN_RATE = #{loanRate,jdbcType=DECIMAL},
+      </if>
+      <if test="creditTerm != null" >
+        CREDIT_TERM = #{creditTerm,jdbcType=INTEGER},
+      </if>
+      <if test="transferStatus != null" >
+        TRANSFER_STATUS = #{transferStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="transferReason != null" >
+        TRANSFER_REASON = #{transferReason,jdbcType=VARCHAR},
+      </if>
+      <if test="applyDate != null" >
+        APPLY_DATE = #{applyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditDate != null" >
+        AUDIT_DATE = #{auditDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="raiseendDate != null" >
+        RAISEEND_DATE = #{raiseendDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transferendDate != null" >
+        TRANSFEREND_DATE = #{transferendDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdId != null" >
+        CREATED_ID = #{createdId,jdbcType=INTEGER},
+      </if>
+      <if test="createdTime != null" >
+        CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateId != null" >
+        UPDATE_ID = #{updateId,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ROW_ID = #{rowId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhqz.scheduler.model.TransferApply" >
+    update transfer_apply
+    set TRANSFER_TITLE = #{transferTitle,jdbcType=VARCHAR},
+      PROFIT_AMOUNT = #{profitAmount,jdbcType=DECIMAL},
+      TRANSFER_AMOUNT = #{transferAmount,jdbcType=DECIMAL},
+      CREDIT_AMOUNT = #{creditAmount,jdbcType=DECIMAL},
+      REMAIN_AMOUNT = #{remainAmount,jdbcType=DECIMAL},
+      TRANSFER_DESC = #{transferDesc,jdbcType=VARCHAR},
+      TRANSFEROR_ID = #{transferorId,jdbcType=INTEGER},
+      RECORD_ID = #{recordId,jdbcType=INTEGER},
+      LOAN_ID = #{loanId,jdbcType=INTEGER},
+      LOAN_RATE = #{loanRate,jdbcType=DECIMAL},
+      CREDIT_TERM = #{creditTerm,jdbcType=INTEGER},
+      TRANSFER_STATUS = #{transferStatus,jdbcType=VARCHAR},
+      TRANSFER_REASON = #{transferReason,jdbcType=VARCHAR},
+      APPLY_DATE = #{applyDate,jdbcType=TIMESTAMP},
+      AUDIT_DATE = #{auditDate,jdbcType=TIMESTAMP},
+      RAISEEND_DATE = #{raiseendDate,jdbcType=TIMESTAMP},
+      TRANSFEREND_DATE = #{transferendDate,jdbcType=TIMESTAMP},
+      CREATED_ID = #{createdId,jdbcType=INTEGER},
+      CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      UPDATE_ID = #{updateId,jdbcType=INTEGER},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where ROW_ID = #{rowId,jdbcType=INTEGER}
+  </update>
+</mapper>

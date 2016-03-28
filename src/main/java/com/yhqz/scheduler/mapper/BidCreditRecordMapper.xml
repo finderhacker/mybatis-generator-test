@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yhqz.scheduler.dao.BidCreditRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.yhqz.scheduler.model.BidCreditRecord" >
+    <id column="F01" property="f01" jdbcType="INTEGER" />
+    <result column="F02" property="f02" jdbcType="VARCHAR" />
+    <result column="F03" property="f03" jdbcType="INTEGER" />
+    <result column="F04" property="f04" jdbcType="INTEGER" />
+    <result column="F05" property="f05" jdbcType="DECIMAL" />
+    <result column="F06" property="f06" jdbcType="DECIMAL" />
+    <result column="F07" property="f07" jdbcType="DECIMAL" />
+    <result column="F08" property="f08" jdbcType="CHAR" />
+    <result column="F09" property="f09" jdbcType="DATE" />
+    <result column="F10" property="f10" jdbcType="DATE" />
+    <result column="F11" property="f11" jdbcType="INTEGER" />
+    <result column="F14" property="f14" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    F01, F02, F03, F04, F05, F06, F07, F08, F09, F10, F11, F14
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t6251
+    where F01 = #{f01,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t6251
+    where F01 = #{f01,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yhqz.scheduler.model.BidCreditRecord" >
+    insert into t6251 (F01, F02, F03, 
+      F04, F05, F06, F07, 
+      F08, F09, F10, F11, 
+      F14)
+    values (#{f01,jdbcType=INTEGER}, #{f02,jdbcType=VARCHAR}, #{f03,jdbcType=INTEGER}, 
+      #{f04,jdbcType=INTEGER}, #{f05,jdbcType=DECIMAL}, #{f06,jdbcType=DECIMAL}, #{f07,jdbcType=DECIMAL}, 
+      #{f08,jdbcType=CHAR}, #{f09,jdbcType=DATE}, #{f10,jdbcType=DATE}, #{f11,jdbcType=INTEGER}, 
+      #{f14,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yhqz.scheduler.model.BidCreditRecord" >
+    insert into t6251
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="f01 != null" >
+        F01,
+      </if>
+      <if test="f02 != null" >
+        F02,
+      </if>
+      <if test="f03 != null" >
+        F03,
+      </if>
+      <if test="f04 != null" >
+        F04,
+      </if>
+      <if test="f05 != null" >
+        F05,
+      </if>
+      <if test="f06 != null" >
+        F06,
+      </if>
+      <if test="f07 != null" >
+        F07,
+      </if>
+      <if test="f08 != null" >
+        F08,
+      </if>
+      <if test="f09 != null" >
+        F09,
+      </if>
+      <if test="f10 != null" >
+        F10,
+      </if>
+      <if test="f11 != null" >
+        F11,
+      </if>
+      <if test="f14 != null" >
+        F14,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="f01 != null" >
+        #{f01,jdbcType=INTEGER},
+      </if>
+      <if test="f02 != null" >
+        #{f02,jdbcType=VARCHAR},
+      </if>
+      <if test="f03 != null" >
+        #{f03,jdbcType=INTEGER},
+      </if>
+      <if test="f04 != null" >
+        #{f04,jdbcType=INTEGER},
+      </if>
+      <if test="f05 != null" >
+        #{f05,jdbcType=DECIMAL},
+      </if>
+      <if test="f06 != null" >
+        #{f06,jdbcType=DECIMAL},
+      </if>
+      <if test="f07 != null" >
+        #{f07,jdbcType=DECIMAL},
+      </if>
+      <if test="f08 != null" >
+        #{f08,jdbcType=CHAR},
+      </if>
+      <if test="f09 != null" >
+        #{f09,jdbcType=DATE},
+      </if>
+      <if test="f10 != null" >
+        #{f10,jdbcType=DATE},
+      </if>
+      <if test="f11 != null" >
+        #{f11,jdbcType=INTEGER},
+      </if>
+      <if test="f14 != null" >
+        #{f14,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yhqz.scheduler.model.BidCreditRecord" >
+    update t6251
+    <set >
+      <if test="f02 != null" >
+        F02 = #{f02,jdbcType=VARCHAR},
+      </if>
+      <if test="f03 != null" >
+        F03 = #{f03,jdbcType=INTEGER},
+      </if>
+      <if test="f04 != null" >
+        F04 = #{f04,jdbcType=INTEGER},
+      </if>
+      <if test="f05 != null" >
+        F05 = #{f05,jdbcType=DECIMAL},
+      </if>
+      <if test="f06 != null" >
+        F06 = #{f06,jdbcType=DECIMAL},
+      </if>
+      <if test="f07 != null" >
+        F07 = #{f07,jdbcType=DECIMAL},
+      </if>
+      <if test="f08 != null" >
+        F08 = #{f08,jdbcType=CHAR},
+      </if>
+      <if test="f09 != null" >
+        F09 = #{f09,jdbcType=DATE},
+      </if>
+      <if test="f10 != null" >
+        F10 = #{f10,jdbcType=DATE},
+      </if>
+      <if test="f11 != null" >
+        F11 = #{f11,jdbcType=INTEGER},
+      </if>
+      <if test="f14 != null" >
+        F14 = #{f14,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where F01 = #{f01,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yhqz.scheduler.model.BidCreditRecord" >
+    update t6251
+    set F02 = #{f02,jdbcType=VARCHAR},
+      F03 = #{f03,jdbcType=INTEGER},
+      F04 = #{f04,jdbcType=INTEGER},
+      F05 = #{f05,jdbcType=DECIMAL},
+      F06 = #{f06,jdbcType=DECIMAL},
+      F07 = #{f07,jdbcType=DECIMAL},
+      F08 = #{f08,jdbcType=CHAR},
+      F09 = #{f09,jdbcType=DATE},
+      F10 = #{f10,jdbcType=DATE},
+      F11 = #{f11,jdbcType=INTEGER},
+      F14 = #{f14,jdbcType=DECIMAL}
+    where F01 = #{f01,jdbcType=INTEGER}
+  </update>
+</mapper>
